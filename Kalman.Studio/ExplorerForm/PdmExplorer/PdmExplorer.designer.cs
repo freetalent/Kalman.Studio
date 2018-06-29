@@ -45,6 +45,7 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.cmsTable = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuItemBuildCodeForTable = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemBatchBuildCustomCode = new System.Windows.Forms.ToolStripMenuItem();
             this.cms.SuspendLayout();
             this.cmsFile.SuspendLayout();
             this.cmsModel.SuspendLayout();
@@ -64,8 +65,8 @@
             this.tv.ShowNodeToolTips = true;
             this.tv.Size = new System.Drawing.Size(239, 489);
             this.tv.TabIndex = 4;
-            this.tv.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tv_MouseDoubleClick);
             this.tv.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tv_MouseClick);
+            this.tv.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tv_MouseDoubleClick);
             // 
             // imgList
             // 
@@ -123,35 +124,36 @@
             this.menuItemBrowserModel,
             this.menuItemBuildWord,
             this.menuItemBuildPdf,
-            this.menuItemBatchBuildCode});
+            this.menuItemBatchBuildCode,
+            this.menuItemBatchBuildCustomCode});
             this.cmsModel.Name = "cmsModel";
-            this.cmsModel.Size = new System.Drawing.Size(158, 114);
+            this.cmsModel.Size = new System.Drawing.Size(185, 136);
             // 
             // menuItemBrowserModel
             // 
             this.menuItemBrowserModel.Name = "menuItemBrowserModel";
-            this.menuItemBrowserModel.Size = new System.Drawing.Size(157, 22);
+            this.menuItemBrowserModel.Size = new System.Drawing.Size(184, 22);
             this.menuItemBrowserModel.Text = "浏览模型";
             this.menuItemBrowserModel.Click += new System.EventHandler(this.menuItemBrowserModel_Click);
             // 
             // menuItemBuildWord
             // 
             this.menuItemBuildWord.Name = "menuItemBuildWord";
-            this.menuItemBuildWord.Size = new System.Drawing.Size(157, 22);
+            this.menuItemBuildWord.Size = new System.Drawing.Size(184, 22);
             this.menuItemBuildWord.Text = "生成Word文档";
             this.menuItemBuildWord.Click += new System.EventHandler(this.menuItemBuildWord_Click);
             // 
             // menuItemBuildPdf
             // 
             this.menuItemBuildPdf.Name = "menuItemBuildPdf";
-            this.menuItemBuildPdf.Size = new System.Drawing.Size(157, 22);
+            this.menuItemBuildPdf.Size = new System.Drawing.Size(184, 22);
             this.menuItemBuildPdf.Text = "生成Pdf文档";
             this.menuItemBuildPdf.Click += new System.EventHandler(this.menuItemBuildPdf_Click);
             // 
             // menuItemBatchBuildCode
             // 
             this.menuItemBatchBuildCode.Name = "menuItemBatchBuildCode";
-            this.menuItemBatchBuildCode.Size = new System.Drawing.Size(157, 22);
+            this.menuItemBatchBuildCode.Size = new System.Drawing.Size(184, 22);
             this.menuItemBatchBuildCode.Text = "批量生成代码";
             this.menuItemBatchBuildCode.Click += new System.EventHandler(this.menuItemBatchBuildCode_Click);
             // 
@@ -172,6 +174,13 @@
             this.menuItemBuildCodeForTable.Size = new System.Drawing.Size(136, 22);
             this.menuItemBuildCodeForTable.Text = "代码生成器";
             this.menuItemBuildCodeForTable.Click += new System.EventHandler(this.menuItemBuildCodeForTable_Click);
+            // 
+            // menuItemBatchBuildCustomCode
+            // 
+            this.menuItemBatchBuildCustomCode.Name = "menuItemBatchBuildCustomCode";
+            this.menuItemBatchBuildCustomCode.Size = new System.Drawing.Size(184, 22);
+            this.menuItemBatchBuildCustomCode.Text = "批量生成自定义代码";
+            this.menuItemBatchBuildCustomCode.Click += new System.EventHandler(this.menuItemBatchBuildCustomCode_Click);
             // 
             // PdmExplorer
             // 
@@ -210,5 +219,6 @@
         private System.Windows.Forms.ContextMenuStrip cmsTable;
         private System.Windows.Forms.ToolStripMenuItem menuItemBuildCodeForTable;
         private System.Windows.Forms.ImageList imgList;
+        private System.Windows.Forms.ToolStripMenuItem menuItemBatchBuildCustomCode;
     }
 }

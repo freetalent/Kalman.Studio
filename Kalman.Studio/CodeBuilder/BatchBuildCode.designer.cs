@@ -42,6 +42,9 @@
             this.txtTablePrefix = new System.Windows.Forms.TextBox();
             this.txtNameSpace = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbClassNameRemovePlural = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtClassPrefix = new System.Windows.Forms.TextBox();
             this.cbClassNameIsFileName = new System.Windows.Forms.CheckBox();
             this.cbAddSuffix = new System.Windows.Forms.CheckBox();
             this.cbClassNamePascal = new System.Windows.Forms.CheckBox();
@@ -80,17 +83,17 @@
             this.cmsTree = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuItemRefresh = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemManage = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtClassPrefix = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbClassNameRemovePlural = new System.Windows.Forms.CheckBox();
             this.gbTableSelect.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
@@ -244,6 +247,32 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "参数设置";
+            // 
+            // cbClassNameRemovePlural
+            // 
+            this.cbClassNameRemovePlural.AutoSize = true;
+            this.cbClassNameRemovePlural.Location = new System.Drawing.Point(134, 127);
+            this.cbClassNameRemovePlural.Name = "cbClassNameRemovePlural";
+            this.cbClassNameRemovePlural.Size = new System.Drawing.Size(96, 16);
+            this.cbClassNameRemovePlural.TabIndex = 30;
+            this.cbClassNameRemovePlural.Text = "去掉类名复数";
+            this.cbClassNameRemovePlural.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(195, 104);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "+类名+";
+            // 
+            // txtClassPrefix
+            // 
+            this.txtClassPrefix.Location = new System.Drawing.Point(118, 100);
+            this.txtClassPrefix.Name = "txtClassPrefix";
+            this.txtClassPrefix.Size = new System.Drawing.Size(71, 21);
+            this.txtClassPrefix.TabIndex = 28;
             // 
             // cbClassNameIsFileName
             // 
@@ -447,6 +476,7 @@
             // 
             // tvTemplate
             // 
+            this.tvTemplate.CheckBoxes = true;
             this.tvTemplate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvTemplate.ImageIndex = 0;
             this.tvTemplate.ImageList = this.imgList;
@@ -455,6 +485,7 @@
             this.tvTemplate.SelectedImageIndex = 0;
             this.tvTemplate.Size = new System.Drawing.Size(186, 279);
             this.tvTemplate.TabIndex = 0;
+            this.tvTemplate.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.tvTemplate_AfterCheck);
             this.tvTemplate.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tvTemplate_MouseClick);
             this.tvTemplate.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tvTemplate_MouseDoubleClick);
             // 
@@ -612,32 +643,6 @@
             this.menuItemManage.Text = "模板管理";
             this.menuItemManage.Click += new System.EventHandler(this.menuItemManage_Click);
             // 
-            // txtClassPrefix
-            // 
-            this.txtClassPrefix.Location = new System.Drawing.Point(118, 100);
-            this.txtClassPrefix.Name = "txtClassPrefix";
-            this.txtClassPrefix.Size = new System.Drawing.Size(71, 21);
-            this.txtClassPrefix.TabIndex = 28;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(195, 104);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "+类名+";
-            // 
-            // cbClassNameRemovePlural
-            // 
-            this.cbClassNameRemovePlural.AutoSize = true;
-            this.cbClassNameRemovePlural.Location = new System.Drawing.Point(134, 127);
-            this.cbClassNameRemovePlural.Name = "cbClassNameRemovePlural";
-            this.cbClassNameRemovePlural.Size = new System.Drawing.Size(96, 16);
-            this.cbClassNameRemovePlural.TabIndex = 30;
-            this.cbClassNameRemovePlural.Text = "去掉类名复数";
-            this.cbClassNameRemovePlural.UseVisualStyleBackColor = true;
-            // 
             // BatchBuildCode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -655,12 +660,15 @@
             this.groupBox1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.gbTemplateList.ResumeLayout(false);
             this.gbTemplateFile.ResumeLayout(false);

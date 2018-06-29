@@ -183,7 +183,7 @@ namespace Kalman.Utilities
                 case DbType.AnsiStringFixedLength:
                 case DbType.String:
                 case DbType.StringFixedLength:
-                    return "String";
+                    return "string";
                 case DbType.Binary:
                     return "byte[]";
                 case DbType.Boolean:
@@ -229,9 +229,9 @@ namespace Kalman.Utilities
                 case DbType.VarNumeric:
                     return "BigDecimal";
                 case DbType.Xml:
-                    return "String";
+                    return "string";
                 default:
-                    return "String";
+                    return "string";
             }
         }
 

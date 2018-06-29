@@ -283,7 +283,8 @@ namespace Kalman.Studio
         private void btnBuildCode_Click(object sender, EventArgs e)
         {
             templateFile = gbTemplateFile.Text;
-            if (!File.Exists(templateFile)) return;
+            //if (!File.Exists(templateFile)) return;
+            if (GetCheckedTemplateFiles(tvTemplate.Nodes).Count == 0) return;
             if (listBox2.Items.Count == 0) return;
 
             textEditorControl1.SaveFile(templateFile);
@@ -296,8 +297,31 @@ namespace Kalman.Studio
             btnBuildCode.Enabled = false;
             backgroundWorker1.RunWorkerAsync();
         }
-
+        private List<string> GetCheckedTemplateFiles(TreeNodeCollection nodes)
+        {
+            List<string> fileNames = new List<string>();
+            foreach (TreeNode node in nodes)
+            {
+                if (node.Checked == true && node.Tag != null && node.Tag.GetType() == typeof(FileInfo))
+                {
+                    fileNames.Add((node.Tag as FileInfo).FullName);
+                }
+                if (node.Nodes != null && node.Nodes.Count > 0)
+                {
+                    fileNames.AddRange(GetCheckedTemplateFiles(node.Nodes));
+                }
+            }
+            return fileNames;
+        }
         private void DoBuild()
+        {
+            var files=GetCheckedTemplateFiles(tvTemplate.Nodes);
+            foreach(var file in files)
+            {
+                DoBuild(file);
+            }
+        }
+        private void DoBuild(string templateFile)
         {
             int finish = 0;
             int total = listBox2.Items.Count;
@@ -312,7 +336,7 @@ namespace Kalman.Studio
                 if (cbClassNameRemovePlural.Checked) className = className.EndsWith("s") ? className.TrimEnd('s') : className.Trim();
                 if (cbAddSuffix.Checked) className = txtClassPrefix.Text.Trim() + className + txtClassSuffix.Text.Trim();
 
-                templateFile = gbTemplateFile.Text;
+                //templateFile = gbTemplateFile.Text;
 
                 List<SOColumn> columnList = table.ColumnList;//可能传入的是从PDObject对象转换过来的SODatabase对象
                 if (columnList == null || columnList.Count == 0) columnList = DbSchemaHelper.Instance.CurrentSchema.GetTableColumnList(table);
@@ -391,5 +415,26 @@ namespace Kalman.Studio
         }
         #endregion
 
+        private void tvTemplate_AfterCheck(object sender, TreeViewEventArgs e)
+        {
+            ChangeAllChildNodeCheck(e.Node, e.Node.Checked);
+        }
+        private void ChangeAllChildNodeCheck(TreeNode node,bool check)
+        {
+            if(node.Checked!=check)
+                node.Checked = check;
+            if (node.Nodes != null && node.Nodes.Count > 0)
+            {
+                foreach(TreeNode child in node.Nodes)
+                {
+                    ChangeAllChildNodeCheck(child, check);
+                }
+            }
+        }
+
+        private void btnBuildCodeEx_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

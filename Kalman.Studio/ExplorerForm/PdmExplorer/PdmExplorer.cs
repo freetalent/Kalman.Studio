@@ -462,25 +462,25 @@ namespace Kalman.Studio
         }
 
         //使用自定义模板批量生成代码
-        //private void menuItemBatchBuildCustomCode_Click(object sender, EventArgs e)
-        //{
-        //    SODatabase db = null;
-        //    TreeNode node = tv.SelectedNode;
+        private void menuItemBatchBuildCustomCode_Click(object sender, EventArgs e)
+        {
+            SODatabase db = null;
+            TreeNode node = tv.SelectedNode;
 
-        //    if (node.Tag is PDModel)
-        //    {
-        //        PDModel m = node.Tag as PDModel;
-        //        db = SOConverter.ToSODatabase(m);
-        //    }
-        //    else
-        //    {
-        //        PDPackage p = node.Tag as PDPackage;
-        //        db = SOConverter.ToSODatabase(p);
-        //    }
+            if (node.Tag is PDModel)
+            {
+                PDModel m = node.Tag as PDModel;
+                db = SOConverter.ToSODatabase(m);
+            }
+            else
+            {
+                PDPackage p = node.Tag as PDPackage;
+                db = SOConverter.ToSODatabase(p);
+            }
 
-        //    BatchBuildCustomCode dialog = new BatchBuildCustomCode(db);
-        //    dialog.ShowDialog();
-        //}
+            BatchBuildCustomCode dialog = new BatchBuildCustomCode(db);
+            dialog.ShowDialog();
+        }
 
         #endregion
 
